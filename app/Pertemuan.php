@@ -11,6 +11,6 @@ class Pertemuan extends Model
     ];
     public function kelas()
     {
-        return $this->belongsTo('App\Post');
+        return $this->belongsTo('App\Kelas');
     }
 }
