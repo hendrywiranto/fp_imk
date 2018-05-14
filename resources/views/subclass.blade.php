@@ -36,7 +36,7 @@
                   <h4 class="item-title">
                       <a href="#">{{$kelas->class_name}}</a>
                     </h4>
-                  <a href="/addkelas/{{$kelas->id}}" class="btn btn-more"><i class="fa fa-plus"></i>Add class</a>
+                  <a href="/subkelas/{{$kelas->id}}" class="btn btn-more"><i class="fa fa-plus"></i>Add class</a>
                 </div>
               </div>
             @endforeach

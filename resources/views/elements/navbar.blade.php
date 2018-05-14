@@ -35,7 +35,11 @@
             <div class="col-md-4">
               <!--user menu-->
               <ul class="list-inline user-menu pull-right">
-                <li>{{session('user.name')}}</li>
+                <li>{{session('user.name')}} 
+                @if(session('user.role')=='dosen')
+                  - Admin
+                @endif
+                </li>
                 <!--LOGOUT BUTTON-->
                 <li><i class="fa fa-sign-in text-primary"></i> <a href="/logout" class="text-uppercase">Logout</a></li> 
                 <!--NOTIFICATION DROPDOWN TRIGGER-->
@@ -56,9 +60,15 @@
               </li>
             </ul>
             <ul class="nav navbar-nav" id="main-menu">
+            @if(session('user.role')=='siswa')
+              <li class="icon-link">
+                <a href="/subkelas"><i class="fa fa-plus"></i> Subscribe Class</a>
+              </li>
+            @else
               <li class="icon-link">
                 <a href="/addkelas"><i class="fa fa-plus"></i> Add Class</a>
               </li>
+            @endif
             </ul>
           </div>
           

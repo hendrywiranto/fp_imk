@@ -13,16 +13,16 @@ class ClassController extends Controller
     	return view('class', ['kelas'=>$kelas[0]]);
     }
 
-    public function showAddClass(){
+    public function showSubClass(){
     	$id = array();
     	foreach (session('user')->kelas as $kelas) {
     		$id[] = $kelas->id;	
     	}
     	$kelas = Kelas::whereNotIn('id', $id)->get();
-	    return view('addclass', ['kelas'=>$kelas]);
+	    return view('subclass', ['kelas'=>$kelas]);
     }
 
-    public function addClass($id){
+    public function subClass($id){
     	$kelas = Kelas::where('id', $id)->get();
     	//dd($kelas);
     	session('user')->kelas()->save($kelas[0]);
