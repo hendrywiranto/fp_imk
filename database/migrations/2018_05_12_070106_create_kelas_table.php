@@ -17,6 +17,7 @@ class CreateKelasTable extends Migration
             $table->increments('id');
             $table->string('class_name');
             $table->string('class_shortname');
+            $table->string('class_lecturer');
             $table->string('class_pic');
             $table->string('class_prologue');
             $table->timestamps();

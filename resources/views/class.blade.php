@@ -19,8 +19,8 @@
           <div class="page-header">
             <h1>
                 Teknologi Antar Jaringan
-                <small>Bagus Jati Santoso</small>
-              </h1>
+                <small>{{$kelas->class_lecturer}}</small>
+            </h1>
           </div>
           <div class="block block-border-bottom-grey block-pd-sm">
             <h3 class="block-title">
