@@ -26,22 +26,28 @@
         <div class="container">
           <h2 class="block-title">Subscribed Classes</h2>
           <div class="item-carousel" data-toggle="owlcarousel" data-owlcarousel-settings='{"items":4, "pagination":false, "navigation":true, "itemsScaleUp":true}'>
-
-            <!-- CLASSES (Loop here)-->
-            <div class="item">
-              <a href="#" class="overlay-wrapper">
-                  <img src="[CLASS IMAGE]" class="img-responsive underlay">
-                  <span class="overlay">
-                    <span class="overlay-content"> <span class="h4">[CLASS TITLE]</span> </span>
-                  </span>
-                </a>
-              <div class="item-details bg-noise">
-                <h4 class="item-title">
-                    <a href="#">[SHORTEN CLASS TITLE]</a>
-                  </h4>
-                <a href="[CLASS LINK]" class="btn btn-more"><i class="fa fa-plus"></i>Open class</a>
+            @if(session('user.kelas')->isEmpty())
+              <div>
+                Belum ada kelas yang diambil
               </div>
-            </div>
+            @endif
+            <!-- CLASSES (Loop here)-->
+            @foreach(session('user.kelas') as $kelas)
+              <div class="item">
+                <a href="#" class="overlay-wrapper">
+                    <img src="{{$kelas->class_pic}}" class="img-responsive underlay">
+                    <span class="overlay">
+                      <span class="overlay-content"> <span class="h4">{{$kelas->class_shortname}}</span> </span>
+                    </span>
+                  </a>
+                <div class="item-details bg-noise">
+                  <h4 class="item-title">
+                      <a href="#">{{$kelas->class_name}}</a>
+                    </h4>
+                  <a href="/kelas/{{$kelas->id}}" class="btn btn-more"><i class="fa fa-plus"></i>Open class</a>
+                </div>
+              </div>
+            @endforeach
 
           </div>
         </div>

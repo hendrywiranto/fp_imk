@@ -11,14 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/login', 'HomeController@showLogin')->name('login');
+Route::post('/login', 'HomeController@login');
+Route::get('/logout', 'HomeController@logout')->name('logout');
 
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/addclass', function () {
-    return view('addclass');
+Route::group(['middleware' => ['session']], function () {
+	Route::get('/', 'HomeController@index')->name('home');
+	Route::get('/addkelas', 'ClassController@showAddClass');
+	Route::get('/addkelas/{id}', 'ClassController@addClass');
+	Route::get('/kelas/{id}', 'ClassController@detail');
 });

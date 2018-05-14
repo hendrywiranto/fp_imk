@@ -17,7 +17,9 @@ class PertemuanTableSeeder extends Seeder
         $user = User::all();
 
         $kelas = new Kelas;
-        $kelas->class_name = 'KIJ E';
+        $kelas->class_name = 'Keamanan Informasi Jaringan E';
+        $kelas->class_shortname = 'KIJ E';
+        $kelas->class_pic = 'https://blog.pucc.or.id/apa-sih-keamanan-jaringan-itu/';
         $kelas->class_prologue = 'Prologue KIJ E';
         $kelas->save();
 
@@ -36,13 +38,47 @@ class PertemuanTableSeeder extends Seeder
 
 
         $kelas = new Kelas;
-        $kelas->class_name = 'IMK B';
+        $kelas->class_name = 'Interaksi Manusia Komputer B';
+        $kelas->class_shortname = 'IMK B';
+        $kelas->class_pic = 'https://jino2016.wordpress.com/2016/01/17/pendahuluan-imk/';
         $kelas->class_prologue = 'Prologue IMK B';
         $kelas->save();
 
         $user[0]->kelas()->save($kelas);
 
         $time1 = Carbon\Carbon::create(2018, 1, 31, 13);
+        for($i=1;$i<17;$i++){
+            $pertemuan = new Pertemuan;
+            $pertemuan->urut = $i;
+            $pertemuan->datetime = $time1->addWeeks(1);
+            $pertemuan->batal = 0;
+            $kelas->pertemuan()->save($pertemuan);
+        }
+
+        $kelas = new Kelas;
+        $kelas->class_name = 'Rekayasa Kebutuhan B';
+        $kelas->class_shortname = 'RK B';
+        $kelas->class_pic = 'http://dinysys.blogspot.com/2017/03/rekayasa-kebutuhan-perangkat-lunak.html';
+        $kelas->class_prologue = 'Prologue RK B';
+        $kelas->save();
+
+        $time1 = Carbon\Carbon::create(2018, 1, 31, 7);
+        for($i=1;$i<17;$i++){
+            $pertemuan = new Pertemuan;
+            $pertemuan->urut = $i;
+            $pertemuan->datetime = $time1->addWeeks(1);
+            $pertemuan->batal = 0;
+            $kelas->pertemuan()->save($pertemuan);
+        }
+
+        $kelas = new Kelas;
+        $kelas->class_name = 'Data Mining A';
+        $kelas->class_shortname = 'DM E';
+        $kelas->class_pic = 'https://www.lynda.com/SPSS-tutorials/Essential-Elements-Predictive-Analytics-Data-Mining/578072-2.html';
+        $kelas->class_prologue = 'Prologue Data Mining A';
+        $kelas->save();
+
+        $time1 = Carbon\Carbon::create(2018, 1, 31, 15);
         for($i=1;$i<17;$i++){
             $pertemuan = new Pertemuan;
             $pertemuan->urut = $i;

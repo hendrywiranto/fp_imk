@@ -25,7 +25,7 @@
         <div class="header-inner container">
           <div class="row">
             <div class="col-md-8">
-              <a href="#" title="Home">
+              <a href="/" title="Home">
                 <h1>
                     AssITS
                 </h1>
@@ -35,9 +35,9 @@
             <div class="col-md-4">
               <!--user menu-->
               <ul class="list-inline user-menu pull-right">
-                <li>[USER NAME]</li>
+                <li>{{session('user.name')}}</li>
                 <!--LOGOUT BUTTON-->
-                <li><i class="fa fa-sign-in text-primary"></i> <a href="login" class="text-uppercase">Logout</a></li> 
+                <li><i class="fa fa-sign-in text-primary"></i> <a href="/logout" class="text-uppercase">Logout</a></li> 
                 <!--NOTIFICATION DROPDOWN TRIGGER-->
                 <li><a class="btn btn-primary btn-hh-trigger" role="button" data-toggle="collapse" data-target=".header-hidden">Open</a></li>
               </ul>
@@ -52,12 +52,12 @@
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav" id="main-menu">
               <li class="icon-link">
-                <a href="#"><i class="fa fa-home"></i></a>
+                <a href="/"><i class="fa fa-home"></i></a>
               </li>
             </ul>
             <ul class="nav navbar-nav" id="main-menu">
               <li class="icon-link">
-                <a href="addclass"><i class="fa fa-plus"></i> Add Class</a>
+                <a href="/addkelas"><i class="fa fa-plus"></i> Add Class</a>
               </li>
             </ul>
           </div>

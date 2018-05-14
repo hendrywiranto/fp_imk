@@ -18,22 +18,28 @@
         <div class="container">
           <h2 class="block-title">Subscribe to a class</h2>
           <div class="item-carousel" data-toggle="owlcarousel" data-owlcarousel-settings='{"items":4, "pagination":false, "navigation":true, "itemsScaleUp":true}'>
-
             <!-- ADD CLASSES (Loop here)-->
-            <div class="item">
-              <a href="#" class="overlay-wrapper">
-                  <img src="[CLASS IMAGE]" class="img-responsive underlay">
-                  <span class="overlay">
-                    <span class="overlay-content"> <span class="h4">[CLASS TITLE]</span> </span>
-                  </span>
-                </a>
-              <div class="item-details bg-noise">
-                <h4 class="item-title">
-                    <a href="#">[SHORTEN CLASS TITLE]</a>
-                  </h4>
-                <a href="#" class="btn btn-more"><i class="fa fa-plus"></i>Add class</a>
+            @if($kelas->isEmpty())
+              <div>
+                Kelas sudah terambil semua
               </div>
-            </div>
+            @endif
+            @foreach($kelas as $kelas)
+              <div class="item">
+                <a href="#" class="overlay-wrapper">
+                    <img src="{{$kelas->class_pic}}" class="img-responsive underlay">
+                    <span class="overlay">
+                        <span class="overlay-content"> <span class="h4">{{$kelas->class_shortname}}</span> </span>
+                    </span>
+                  </a>
+                <div class="item-details bg-noise">
+                  <h4 class="item-title">
+                      <a href="#">{{$kelas->class_name}}</a>
+                    </h4>
+                  <a href="/addkelas/{{$kelas->id}}" class="btn btn-more"><i class="fa fa-plus"></i>Add class</a>
+                </div>
+              </div>
+            @endforeach
             
           </div>
         </div>
