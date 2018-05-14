@@ -4,49 +4,51 @@
 <head>
     <!-- PAGE TABS TITLE -->
     <title>ASSITS - Add Class</title>
-    @include('elements.header')
+    @include('layout.header')
 </head>
 
 <body class="page-index has-hero">
   <div id="background-wrapper" class="benches" data-stellar-background-ratio="0.1">
 
   <!-- INCLUDE NAVBAR -->
-@include('elements.navbar')
+@include('layout.navbar')
 
   <div id="content">
+    <div class="container">
+    <h2 class="block-title">Add Classes</h2>
     <form action="/addkelas" method="POST">
       {!! csrf_field() !!}
       <div class="form-group">
-        <label for="exampleInputEmail1">Class name</label>
+        <label for="exampleInputEmail1">Class Name</label>
         <input type="text" name="name" class="form-control" >
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Class short name</label>
+        <label for="exampleInputEmail1">Class Short Name</label>
         <input type="text" name="shortname" class="form-control" >
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Class lecturer</label>
+        <label for="exampleInputEmail1">Class Lecturer</label>
         <input type="text" name="lecturer" class="form-control" >
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Class picture</label>
+        <label for="exampleInputEmail1">Class Picture</label>
         <input type="text" name="pic" class="form-control" >
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Class prologue</label>
+        <label for="exampleInputEmail1">Class Prologue</label>
         <input type="text" name="prologue" class="form-control" >
       </div>
-        <input type="submit" name="submit" class="btn btn-primary">
-      </div>
+        <input type="submit" name="submit" class="btn btn-default btn-block" value="Add Class">
     </form>
+    </div>
   </div>
   <!-- /content -->
   
   <!-- INCLUDE FOOTER -->
-@include('elements.footer')
+@include('layout.footer')
 
   <!-- INCLUDE SCRIPTS -->
-@include('elements.script')
+@include('layout.script')
 
 </body>
 

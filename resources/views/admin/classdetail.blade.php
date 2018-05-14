@@ -4,14 +4,14 @@
 <head>
     <!-- PAGE TABS TITLE -->
     <title>ASSITS - Add Class</title>
-    @include('elements.header')
+    @include('layout.header')
 </head>
 
 <body class="page-index has-hero">
   <div id="background-wrapper" class="benches" data-stellar-background-ratio="0.1">
 
   <!-- INCLUDE NAVBAR -->
-@include('elements.navbar')
+  @include('layout.navbar')
 
   <div id="content">
     <div class="container" id="about">
@@ -29,7 +29,7 @@
             </h3>
             <p class="text-fancy">[LECTURER PRESENCE INFO]</p>
             <!-- IF EMPTY SHOW -->
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#presence">Add Information</button>
+            <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#presence">Add Information</button>
             <!-- Modal -->
             <div class="modal fade" id="presence" role="dialog">
               <div class="modal-dialog">
@@ -37,16 +37,16 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Add presence information</h4>
+                    <h4 class="modal-title">Add Presence Information</h4>
                   </div>
                   <div class="modal-body">
                     <div class="input-group input-group-lg">
                       <span class="input-group-addon"><i class="fa fa-fw fa-arrow-right"></i></span>
-                      <input type="text" class="form-control" placeholder="Information">
+                      <input type="text" class="form-control" placeholder="Write here">
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <a class="btn btn-default">Submit</a>
+                    <a class="btn btn-default">Save</a>
                   </div>
                 </div>
                 
@@ -63,8 +63,8 @@
               <div class="col-md-4">
                 <div class="stat"> 
                   <small><strong>Course [COURSE NUM]</strong></small>
-                  <small>Materials : <a class="btn btn-sm btn-primary" href="[MATERIAL LINK]">View</a> <a class="btn btn-sm btn-primary" href="[REUPLOAD LINK]">Reupload</a> </small>
-                  <small>Video &emsp;&nbsp;&nbsp;: <a class="btn btn-sm btn-primary" href="[MATERIAL VIDEO LINK]">View</a> <a class="btn btn-sm btn-primary" href="[REUPLOAD LINK]">Reupload</a></small>
+                  <small>Materials : <a class="btn btn-sm btn-default" href="[MATERIAL LINK]">View</a> <a class="btn btn-sm btn-default" href="[REUPLOAD LINK]">Reupload</a> </small>
+                  <small>Video &emsp;&nbsp;&nbsp;: <a class="btn btn-sm btn-default" href="[MATERIAL VIDEO LINK]">View</a> <a class="btn btn-sm btn-default" href="[REUPLOAD LINK]">Reupload</a></small>
                 </div>
               </div>
               
@@ -86,13 +86,14 @@
       </div>
     </div>
   </div>
+</div>
   <!-- /content -->
   
   <!-- INCLUDE FOOTER -->
-@include('elements.footer')
+  @include('layout.footer')
 
   <!-- INCLUDE SCRIPTS -->
-@include('elements.script')
+  @include('layout.script')
 
 </body>
 

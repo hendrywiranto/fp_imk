@@ -3,44 +3,45 @@
 
 <head>
     <!-- PAGE TABS TITLE -->
-    <title>ASSITS - Home</title>
-    @include('elements.header')
+    <title>ASSITS - Class</title>
+    @include('layout.header')
 </head>
     
 <body class="page-index has-hero">
   <div id="background-wrapper" class="metro" data-stellar-background-ratio="0.1">
     <!-- INCLUDE NAVBAR -->
-@include('elements.navbar')
-  <div id="content">
+    @include('layout.navbar')
+    <div id="content">
+    
     <div class="container" id="about">
       <div class="row">
         <!--main content-->
         <div class="col-md-9 col-md-push-3">
           <div class="page-header">
             <h1>
-                Teknologi Antar Jaringan
-                <small>{{$kelas->class_lecturer}}</small>
-            </h1>
+                {{$kelas->class_name}}
+            </h1>  
+          <small>{{$kelas->class_lecturer}}</small>
           </div>
           <div class="block block-border-bottom-grey block-pd-sm">
             <h3 class="block-title">
                 Prologue
               </h3>
-            <img src="img/misc/about-us.png" alt="About us" class="img-responsive img-thumbnail pull-right m-l m-b">
+            <img src="/img/misc/about-us.png" alt="About us" class="img-responsive img-thumbnail pull-right m-l m-b">
             <p>{{$kelas->class_prologue}}</p>
           </div>
           <div class="block-highlight block-pd-h block-pd-sm">
             <h3 class="block-title">
                 Lecturer Info
               </h3>
-            <p class="text-fancy">Mon,April 9th 2018: Lecturer will attend the class on time.</p>
+            <p class="text-fancy">Mon, April 9th 2018:&emsp;Lecturer will attend the class on time.</p>
           </div>
           <div class="block">
             <h3 class="block-title">
                 Materials
               </h3>
-            @foreach($kelas->pertemuan as $pertemuan)
             <div class="row">
+            @foreach($kelas->pertemuan as $pertemuan)
               <div class="col-md-4">
                 <div class="stat"> 
                   <small><strong>Course {{$pertemuan->urut}}</strong></small>
@@ -48,8 +49,8 @@
                   <small>Video : <a href="https://garuk.in/vidtaj1">Record {{$kelas->class_name}} {{$pertemuan->urut}}</a></small>
                 </div>
               </div>
-            </div>
             @endforeach
+            </div>
           </div>
         </div>
         <!-- sidebar -->
@@ -66,11 +67,12 @@
       </div>
     </div>
   </div>
+</div>
   <!-- INCLUDE FOOTER -->
-@include('elements.footer')
+@include('layout.footer')
 
   <!-- INCLUDE SCRIPTS -->
-@include('elements.script')
+@include('layout.script')
 
 </body>
 </html>

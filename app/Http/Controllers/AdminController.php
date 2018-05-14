@@ -9,11 +9,11 @@ class AdminController extends Controller
 {
 	public function detailKelas($id){
 		$kelas = Kelas::find($id);
-		return view('admclassdetail', ['kelas'=>$kelas]);
+		return view('admin.classdetail', ['kelas'=>$kelas]);
 	}
 
 	public function showAddKelas(){
-		return view('admaddclass');
+		return view('admin.addclass');
 	}
 
 	public function addKelas(Request $request){        

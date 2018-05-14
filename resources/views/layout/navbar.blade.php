@@ -24,26 +24,30 @@
       <div class="header">
         <div class="header-inner container">
           <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-6">
               <a href="/" title="Home">
                 <h1>
-                    AssITS
+                  AssITS
                 </h1>
               </a>
             </div>
             <!--header rightside-->
-            <div class="col-md-4">
+            <div class="col-md-6">
               <!--user menu-->
               <ul class="list-inline user-menu pull-right">
                 <li>{{session('user.name')}} 
                 @if(session('user.role')=='dosen')
-                  - Admin
+                    -&ensp;<i>Administrator</i>
+                @elseif(session('user.role')=='siswa')
+                    -&ensp;<i>{{session('user.nrp')}}</i>
                 @endif
                 </li>
                 <!--LOGOUT BUTTON-->
-                <li><i class="fa fa-sign-in text-primary"></i> <a href="/logout" class="text-uppercase">Logout</a></li> 
+                <li><a href="/logout" class="btn btn-default text-uppercase"><i class="fa fa-sign-in text-primary"></i>&ensp;Logout</a></li> 
                 <!--NOTIFICATION DROPDOWN TRIGGER-->
+                @if(session('user.role')=='siswa')
                 <li><a class="btn btn-primary btn-hh-trigger" role="button" data-toggle="collapse" data-target=".header-hidden">Open</a></li>
+                @endif
               </ul>
             </div>
           </div>
@@ -62,11 +66,11 @@
             <ul class="nav navbar-nav" id="main-menu">
             @if(session('user.role')=='siswa')
               <li class="icon-link">
-                <a href="/subkelas"><i class="fa fa-plus"></i> Subscribe Class</a>
+                <a href="/subkelas"><i class="fa fa-plus"></i>&ensp;Subscribe Class</a>
               </li>
             @else
               <li class="icon-link">
-                <a href="/addkelas"><i class="fa fa-plus"></i> Add Class</a>
+                <a href="/addkelas"><i class="fa fa-plus"></i>&ensp;Add Class</a>
               </li>
             @endif
             </ul>

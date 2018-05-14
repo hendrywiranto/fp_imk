@@ -2,18 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
-
   <!-- PAGE TABS TITLE -->
   <title>ASSITS - Login</title>
   <!-- HEADER -->
-  <link rel="import" href="elements/head.html">
+  @include('layout.header')
 </head>
-
-
 
 <body class="fullscreen-centered page-login">
   <!-- BACKGROUND -->
@@ -24,7 +17,7 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3 class="panel-title">
-                  AssITS Login
+                  <b>AssITS</b> Login
                 </h3>
             </div>
             <div class="panel-body">
@@ -44,7 +37,7 @@
                     </div>
                   </div>
                   
-                  <input type="submit" class="form-control">
+                  <input type="submit" class="btn btn-lg btn-default btn-block" value="Login">
 {{--                   <a class="btn btn-lg btn-primary btn-block" href="index.html">LOGIN</a>
                   <a class="btn btn-lg btn-primary btn-block" href="admin.html">ADMIN</a> --}}
                   
@@ -58,8 +51,6 @@
   </div>
 
   <!-- SCRIPTS -->
-  <link rel="import" href="elements/script.html">
-
+  @include('layout.script')
 </body>
-
 </html>
