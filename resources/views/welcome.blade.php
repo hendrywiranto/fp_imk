@@ -33,12 +33,10 @@
                 Belum ada kelas yang diambil
               </div>
             @endif
-            <div class="row">
             <!-- CLASSES (Loop here)-->
             @foreach(session('user.kelas') as $kelas)
-              <div class="col-md-4 item">
                 <a href="#" class="overlay-wrapper">
-                    <img src="{{$kelas->class_pic}}" class="img-responsive underlay">
+                    <img style="width:100%;" src="{{$kelas->class_pic}}" class="img-responsive underlay">
                     <span class="overlay">
                       <span class="overlay-content"> <span class="h4">{{$kelas->class_shortname}}</span> </span>
                     </span>
@@ -49,9 +47,9 @@
                     </h4>
                   <a href="/kelas/{{$kelas->id}}" class="btn btn-more"><i class="fa fa-plus"></i>Open Class</a>
                 </div>
-              </div>
+              
             @endforeach
-              </div>
+              
           </div>
         </div>
       </div>
@@ -66,13 +64,12 @@
       <div class="container">
         <h2 class="block-title">Manage Classes</h2>
         <div class="item-carousel" data-toggle="owlcarousel" data-owlcarousel-settings='{"items":4, "pagination":false, "navigation":true, "itemsScaleUp":true}'>
-          
-          <div class="row">
+
           <!-- CLASS MANAGEMENT (Loop Here) -->
           @foreach($kelas as $kelas)
-            <div class="col-md-4 item">
+            <div class="item">
               <a href="#" class="overlay-wrapper">
-                  <img src="{{$kelas->class_pic}}" class="img-responsive underlay">
+                  <img style="width:100%;" src="{{$kelas->class_pic}}" class="img-responsive underlay">
                   <span class="overlay">
                     <span class="overlay-content"> <span class="h4">{{$kelas->class_name}}</span> </span>
                   </span>
@@ -85,7 +82,6 @@
               </div>
             </div>
           @endforeach
-            </div>
           </div>
           </div>
         </div>

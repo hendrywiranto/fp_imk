@@ -29,7 +29,7 @@
             </h3>
             <p class="text-fancy">[LECTURER PRESENCE INFO]</p>
             <!-- IF EMPTY SHOW -->
-            <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#presence">Add Information</button>
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#presence">Add Information</button>
             <!-- Modal -->
             <div class="modal fade" id="presence" role="dialog">
               <div class="modal-dialog">
@@ -46,7 +46,7 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <a class="btn btn-default">Save</a>
+                    <a class="btn btn-primary">Save</a>
                   </div>
                 </div>
                 
@@ -63,8 +63,8 @@
               <div class="col-md-4">
                 <div class="stat"> 
                   <small><strong>Course [COURSE NUM]</strong></small>
-                  <small>Materials : <a class="btn btn-sm btn-default" href="[MATERIAL LINK]">View</a> <a class="btn btn-sm btn-default" href="[REUPLOAD LINK]">Reupload</a> </small>
-                  <small>Video &emsp;&nbsp;&nbsp;: <a class="btn btn-sm btn-default" href="[MATERIAL VIDEO LINK]">View</a> <a class="btn btn-sm btn-default" href="[REUPLOAD LINK]">Reupload</a></small>
+                  <small>Materials : <a class="btn btn-sm btn-primary" href="[MATERIAL LINK]">View</a> <a class="btn btn-sm btn-primary" href="[REUPLOAD LINK]">Reupload</a> </small>
+                  <small>Video &emsp;&nbsp;&nbsp;: <a class="btn btn-sm btn-primary" href="[MATERIAL VIDEO LINK]">View</a> <a class="btn btn-sm btn-primary" href="[REUPLOAD LINK]">Reupload</a></small>
                 </div>
               </div>
               

@@ -38,7 +38,7 @@
         <label for="exampleInputEmail1">Class Prologue</label>
         <input type="text" name="prologue" class="form-control" >
       </div>
-        <input type="submit" name="submit" class="btn btn-default btn-block" value="Add Class">
+        <input type="submit" name="submit" class="btn btn-primary btn-block" value="Add Class">
     </form>
     </div>
   </div>

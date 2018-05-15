@@ -43,7 +43,7 @@
                 @endif
                 </li>
                 <!--LOGOUT BUTTON-->
-                <li><a href="/logout" class="btn btn-default text-uppercase"><i class="fa fa-sign-in text-primary"></i>&ensp;Logout</a></li> 
+                <li><i class="fa fa-sign-in text-primary"></i>&ensp;<a href="/logout" class="text-uppercase">Logout</a></li> 
                 <!--NOTIFICATION DROPDOWN TRIGGER-->
                 @if(session('user.role')=='siswa')
                 <li><a class="btn btn-primary btn-hh-trigger" role="button" data-toggle="collapse" data-target=".header-hidden">Open</a></li>

@@ -37,7 +37,7 @@
                     </div>
                   </div>
                   
-                  <input type="submit" class="btn btn-lg btn-default btn-block" value="Login">
+                  <input type="submit" class="btn btn-lg btn-primary btn-block" value="Login">
 {{--                   <a class="btn btn-lg btn-primary btn-block" href="index.html">LOGIN</a>
                   <a class="btn btn-lg btn-primary btn-block" href="admin.html">ADMIN</a> --}}
                   

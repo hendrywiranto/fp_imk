@@ -21,12 +21,10 @@
             <!-- ADD CLASSES (Loop here)-->
             @if($kelas->isEmpty())
               <div>
-                Kelas sudah terambil semua
+                <i>Kelas sudah terambil semua.</i>
               </div>
             @endif
-            <div class="row">
             @foreach($kelas as $kelas)
-              <div class="col-md-4">
               <div class="item">
                 <a href="#" class="overlay-wrapper">
                     <img src="{{$kelas->class_pic}}" class="img-responsive underlay">
@@ -41,9 +39,7 @@
                   <a href="/subkelas/{{$kelas->id}}" class="btn btn-more"><i class="fa fa-plus"></i>Add Class</a>
                 </div>
               </div>
-              </div>
             @endforeach
-            </div>
           </div>
         </div>
       </div>
