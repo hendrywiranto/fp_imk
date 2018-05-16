@@ -16,7 +16,7 @@
   <div id="content">
     <div class="container">
     <h2 class="block-title">Add Classes</h2>
-    <form action="/addkelas" method="POST">
+    <form action="/addkelas" method="POST" enctype="multipart/form-data">
       {!! csrf_field() !!}
       <div class="form-group">
         <label for="exampleInputEmail1">Class Name</label>
@@ -32,7 +32,7 @@
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Class Picture</label>
-        <input type="text" name="pic" class="form-control" >
+        <input type="file" name="input_img" id="imageInput" class="form-control" accept="image/*">
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Class Prologue</label>

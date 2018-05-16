@@ -35,8 +35,9 @@
             @endif
             <!-- CLASSES (Loop here)-->
             @foreach(session('user.kelas') as $kelas)
-                <a href="#" class="overlay-wrapper">
-                    <img style="width:100%;" src="{{$kelas->class_pic}}" class="img-responsive underlay">
+              <div class="item">
+                <a href="/kelas/{{$kelas->id}}" class="overlay-wrapper">
+                    <img style="width:1000px; height=800px;" src="{{$kelas->class_pic}}" class="img-responsive underlay">
                     <span class="overlay">
                       <span class="overlay-content"> <span class="h4">{{$kelas->class_shortname}}</span> </span>
                     </span>
@@ -47,6 +48,7 @@
                     </h4>
                   <a href="/kelas/{{$kelas->id}}" class="btn btn-more"><i class="fa fa-plus"></i>Open Class</a>
                 </div>
+            </div>
               
             @endforeach
               
@@ -68,7 +70,7 @@
           <!-- CLASS MANAGEMENT (Loop Here) -->
           @foreach($kelas as $kelas)
             <div class="item">
-              <a href="#" class="overlay-wrapper">
+              <a href="/detailkelas/{{$kelas->id}}" class="overlay-wrapper">
                   <img style="width:100%;" src="{{$kelas->class_pic}}" class="img-responsive underlay">
                   <span class="overlay">
                     <span class="overlay-content"> <span class="h4">{{$kelas->class_name}}</span> </span>

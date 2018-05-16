@@ -26,7 +26,7 @@
             @endif
             @foreach($kelas as $kelas)
               <div class="item">
-                <a href="#" class="overlay-wrapper">
+                <a href="/subkelas/{{$kelas->id}}" class="overlay-wrapper">
                     <img src="{{$kelas->class_pic}}" class="img-responsive underlay">
                     <span class="overlay">
                         <span class="overlay-content"> <span class="h4">{{$kelas->class_shortname}}</span> </span>

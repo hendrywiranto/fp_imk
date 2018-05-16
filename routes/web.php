@@ -17,11 +17,16 @@ Route::get('/logout', 'HomeController@logout')->name('logout');
 
 Route::group(['middleware' => ['session']], function () {
 	Route::get('/', 'HomeController@index')->name('home');
-	Route::get('/subkelas', 'ClassController@showsubClass');
-	Route::get('/subkelas/{id}', 'ClassController@subClass');
-	Route::get('/kelas/{id}', 'ClassController@detail');
+	
+	Route::group(['middleware' => ['siswa']], function () {
+		Route::get('/subkelas', 'ClassController@showsubClass');
+		Route::get('/subkelas/{id}', 'ClassController@subClass');
+		Route::get('/kelas/{id}', 'ClassController@detail');
+	});
 
-	Route::get('/detailkelas/{id}', 'AdminController@detailKelas');
-	Route::get('/addkelas', 'AdminController@showAddKelas');
-	Route::post('/addkelas', 'AdminController@addKelas');
+	Route::group(['middleware' => ['dosen']], function () {
+		Route::get('/detailkelas/{id}', 'AdminController@detailKelas');
+		Route::get('/addkelas', 'AdminController@showAddKelas');
+		Route::post('/addkelas', 'AdminController@addKelas');
+	});
 });

@@ -21,8 +21,13 @@ class AdminController extends Controller
         $kelas->class_name = $request->input('name');
         $kelas->class_shortname = $request->input('shortname');
         $kelas->class_lecturer = $request->input('lecturer');
-        $kelas->class_pic = $request->input('pic');
         $kelas->class_prologue = $request->input('prologue');
+        if ($request->file('input_img')){
+            $img = time() . "." . $request->file('input_img')->getClientOriginalExtension();
+            $request->file('input_img')->move(base_path() . '/public/img/showcase/', $img);
+            $photopath = "img/showcase/" . $img;
+	    	$kelas->class_pic = $photopath;
+        }
         $kelas->save();
         return redirect()->route('home');
 	}

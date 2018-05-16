@@ -20,7 +20,7 @@ class PertemuanTableSeeder extends Seeder
         $kelas->class_name = 'Keamanan Informasi Jaringan E';
         $kelas->class_shortname = 'KIJ E';
         $kelas->class_lecturer = 'Tohari Ahmad';
-        $kelas->class_pic = 'https://blog.pucc.or.id/wp-content/uploads/2017/12/network-security_MCG.jpg';
+        $kelas->class_pic = '/img/showcase/KIJ.png';
         $kelas->class_prologue = 'Prologue KIJ E';
         $kelas->save();
 
@@ -42,7 +42,7 @@ class PertemuanTableSeeder extends Seeder
         $kelas->class_name = 'Interaksi Manusia Komputer B';
         $kelas->class_shortname = 'IMK B';
         $kelas->class_lecturer = 'Anny Yuliarty';
-        $kelas->class_pic = 'https://jino2016.files.wordpress.com/2016/01/imk.jpg';
+        $kelas->class_pic = '/img/showcase/TAJ.jpg';
         $kelas->class_prologue = 'Prologue IMK B';
         $kelas->save();
 
@@ -61,7 +61,7 @@ class PertemuanTableSeeder extends Seeder
         $kelas->class_name = 'Rekayasa Kebutuhan B';
         $kelas->class_shortname = 'RK B';
         $kelas->class_lecturer = 'Nurul Fajrin';
-        $kelas->class_pic = 'https://4.bp.blogspot.com/-dDjwQQSh5AE/WL6xa1dLGII/AAAAAAAAFFA/uapKxaCv_kItlRF7O2rN8aEkG383LCAbgCEw/s320/498500152703f9dbd8be264291664ab4.jpg';
+        $kelas->class_pic = '/img/showcase/RK.jpg';
         $kelas->class_prologue = 'Prologue RK B';
         $kelas->save();
 
@@ -78,7 +78,7 @@ class PertemuanTableSeeder extends Seeder
         $kelas->class_name = 'Data Mining A';
         $kelas->class_shortname = 'DM E';
         $kelas->class_lecturer = 'Chastine Fatichah';
-        $kelas->class_pic = 'https://cdn.lynda.com/course/578072/578072-636342597357960762-16x9.jpg';
+        $kelas->class_pic = '/img/showcase/Wireless.jpg';
         $kelas->class_prologue = 'Prologue Data Mining A';
         $kelas->save();
 
