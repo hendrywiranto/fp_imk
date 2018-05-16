@@ -25,7 +25,7 @@ class AdminController extends Controller
         if ($request->file('input_img')){
             $img = time() . "." . $request->file('input_img')->getClientOriginalExtension();
             $request->file('input_img')->move(base_path() . '/public/img/showcase/', $img);
-            $photopath = "img/showcase/" . $img;
+            $photopath = "/img/showcase/" . $img;
 	    	$kelas->class_pic = $photopath;
         }
         $kelas->save();
