@@ -6,17 +6,21 @@
               	Classes
               </h3>
               <!--LOOP HERE-->
-              <p>[CLASS NOTIFICATION]</p>
-            
+              @if(session('pert')!=NULL)
+                @foreach(session('pert') as $pert)
+                  <p>{{$pert->datetime}}@if($pert->batal==1) - Batal @endif</p>
+                  <a href="/kelas/{{$pert->kelas->id}}">{{$pert->kelas->class_name}}</a><br><br>
+                @endforeach
+              @endif
             </div>
-            <div class="col-md-3">
+{{--             <div class="col-md-3">
               <h3>
               	Tasks
               </h3>
               <!--LOOP HERE-->
 			        <p>[TASK NOTIFICATION]</p>
             
-            </div>
+            </div> --}}
           </div>
       	</div>
     </div>

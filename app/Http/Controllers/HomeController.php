@@ -10,9 +10,23 @@ use App\Kelas;
 
 class HomeController extends Controller
 {
+    public function notification(){
+        $datenow = \Carbon\Carbon::now(7);
+        $pert = array();
+        foreach(session('user')->kelas as $kelas){
+            foreach($kelas->pertemuan as $pertemuan){
+                $diff = $datenow->diffInDays($pertemuan->datetime);  
+                if($diff<7 && !$datenow->gt($pertemuan->datetime)){
+                    $pert[] = $pertemuan;
+                }
+            }
+        }
+        Session::put('pert', $pert);
+    }
     public function index(){
         $user_details = User::where('email', session('user.email'))->get();
         Session::put('user', $user_details[0]);
+        $this->notification();
         if(session('user.role')=='dosen'){
             $kelas = Kelas::all();
             return view('welcome', ['kelas'=>$kelas]);
@@ -28,11 +42,7 @@ class HomeController extends Controller
 
     public function login(Request $request){
 		$user_details = User::where('email', $request->input('email'))->get();
-		if ($user_details[0]->password=bcrypt($request->input('password')) && $user_details[0]->role=='dosen') {
-            Session::put('user', $user_details[0]);
-            return redirect()->route('home');
-		}
-        else if ($user_details[0]->password=bcrypt($request->input('password'))) {
+        if ($user_details[0]->password==md5($request->input('password'))) {
             Session::put('user', $user_details[0]);
             return redirect()->route('home');
         }

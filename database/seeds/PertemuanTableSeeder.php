@@ -29,7 +29,7 @@ class PertemuanTableSeeder extends Seeder
         $user[1]->kelas()->save($kelas);
         $user[3]->kelas()->save($kelas);
 
-        $time1 = Carbon\Carbon::create(2018, 1, 31, 10);
+        $time1 = Carbon\Carbon::create(2018, 2, 31, 10);
         for($i=1;$i<17;$i++){
             $pertemuan = new Pertemuan;
             $pertemuan->urut = $i;
@@ -50,7 +50,7 @@ class PertemuanTableSeeder extends Seeder
 
         $user[0]->kelas()->save($kelas);
 
-        $time1 = Carbon\Carbon::create(2018, 1, 31, 13);
+        $time1 = Carbon\Carbon::create(2018, 3, 1, 13);
         for($i=1;$i<17;$i++){
             $pertemuan = new Pertemuan;
             $pertemuan->urut = $i;
@@ -68,7 +68,7 @@ class PertemuanTableSeeder extends Seeder
         $kelas->class_prologue = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis nibh eget nisl dignissim, eget aliquet metus sodales. Aliquam cursus ante vitae risus mollis bibendum. Praesent nec cursus ante. Nam vestibulum lacus mi, a commodo velit egestas eget. Etiam id est non est pharetra dictum eget id urna. Ut eu ornare ex. Aenean in iaculis quam. Aenean facilisis efficitur turpis, pulvinar luctus diam facilisis condimentum. Nullam feugiat ultricies maximus. Cras erat magna, finibus et nunc et, lobortis egestas ante. Duis quis vulputate turpis.';
         $kelas->save();
 
-        $time1 = Carbon\Carbon::create(2018, 1, 31, 7);
+        $time1 = Carbon\Carbon::create(2018, 3, 2, 7);
         for($i=1;$i<17;$i++){
             $pertemuan = new Pertemuan;
             $pertemuan->urut = $i;
@@ -86,7 +86,7 @@ class PertemuanTableSeeder extends Seeder
         $kelas->class_prologue = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis nibh eget nisl dignissim, eget aliquet metus sodales. Aliquam cursus ante vitae risus mollis bibendum. Praesent nec cursus ante. Nam vestibulum lacus mi, a commodo velit egestas eget. Etiam id est non est pharetra dictum eget id urna. Ut eu ornare ex. Aenean in iaculis quam. Aenean facilisis efficitur turpis, pulvinar luctus diam facilisis condimentum. Nullam feugiat ultricies maximus. Cras erat magna, finibus et nunc et, lobortis egestas ante. Duis quis vulputate turpis.';
         $kelas->save();
 
-        $time1 = Carbon\Carbon::create(2018, 1, 31, 15);
+        $time1 = Carbon\Carbon::create(2018, 3, 3, 15);
         for($i=1;$i<17;$i++){
             $pertemuan = new Pertemuan;
             $pertemuan->urut = $i;
