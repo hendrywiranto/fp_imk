@@ -2,7 +2,7 @@
     <div class="container">
       <div class="row" align="center">
         <h4 class="col">
-            Copyright © HenDOG on association with AssITS Gang
+            Copyright © 2018 ASS-ITS
         </h4>
         <a href="#top" class="scrolltop">Top</a>
       </div>

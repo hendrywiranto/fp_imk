@@ -14,6 +14,14 @@
 @include('layout.navbar')
 
     <div id="content">
+      <!-- SOME WORDS -->
+      <div class="mission text-center block block-pd-sm block-bg-noise">
+        <div class="container">
+          <h2 class="text-shadow-white">
+              <strong>AssITS</strong> is your complete source for your courses information and materials that is easy and quick.
+            </h2>
+        </div>
+      </div>
       <div class="showcase block block-border-bottom-grey">
         <div class="container">
           <h2 class="block-title">Subscribe to a Class</h2>
