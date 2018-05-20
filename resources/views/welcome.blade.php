@@ -26,8 +26,10 @@
       <!-- SUBBED CLASSES SECTION -->
       <div class="showcase block block-border-bottom-grey">
         <div class="container">
-          <h2 class="block-title">Subscribed Classes</h2>
-          <div class="item-carousel" data-toggle="owlcarousel" data-owlcarousel-settings='{"items":4, "pagination":false, "navigation":true, "itemsScaleUp":true}'>
+          <h2 class="block-title">Enrolled Classes</h2>
+<!--          <div class="item-carousel" data-toggle="owlcarousel" data-owlcarousel-settings='{"items":4, "pagination":false, "navigation":true, "itemsScaleUp":true}'>-->
+          
+          <div class="item-carousel">
             @if(session('user.kelas')->isEmpty())
               <div>
                 Belum ada kelas yang diambil
@@ -35,16 +37,16 @@
             @endif
             <!-- CLASSES (Loop here)-->
             @foreach(session('user.kelas') as $kelas)
-              <div class="item">
+               <div style="margin: 10px 0 10px 0" align="center" class="col-lg-3">
                 <a href="/kelas/{{$kelas->id}}" class="overlay-wrapper">
-                    <img style="width:1000px; height=800px;" src="{{$kelas->class_pic}}" class="img-responsive underlay">
+                    <img style="width:100%;" src="{{$kelas->class_pic}}" class="img-responsive underlay">
                     <span class="overlay">
                       <span class="overlay-content"> <span class="h4">{{$kelas->class_shortname}}</span> </span>
                     </span>
                   </a>
                 <div class="item-details bg-noise">
                   <h4 class="item-title">
-                      <a href="#">{{$kelas->class_name}}</a>
+                      <h5>{{$kelas->class_name}}</h5>
                     </h4>
                   <a href="/kelas/{{$kelas->id}}" class="btn btn-more"><i class="fa fa-plus"></i>Open Class</a>
                 </div>
@@ -65,20 +67,21 @@
     <div class="showcase block block-border-bottom-grey">
       <div class="container">
         <h2 class="block-title">Manage Classes</h2>
-        <div class="item-carousel" data-toggle="owlcarousel" data-owlcarousel-settings='{"items":4, "pagination":false, "navigation":true, "itemsScaleUp":true}'>
+<!--        <div class="item-carousel" data-toggle="owlcarousel" data-owlcarousel-settings='{"items":4, "pagination":false, "navigation":true, "itemsScaleUp":true}'>-->
+        <div class="item-carousel">
 
           <!-- CLASS MANAGEMENT (Loop Here) -->
           @foreach($kelas as $kelas)
-            <div class="item">
+            <div style="margin: 10px 0 10px 0" align="center" class="col-lg-3">
               <a href="/detailkelas/{{$kelas->id}}" class="overlay-wrapper">
                   <img style="width:100%;" src="{{$kelas->class_pic}}" class="img-responsive underlay">
                   <span class="overlay">
-                    <span class="overlay-content"> <span class="h4">{{$kelas->class_name}}</span> </span>
+                    <span class="overlay-content"> <span class="h4">{{$kelas->class_shortname}}</span> </span>
                   </span>
                 </a>
               <div class="item-details bg-noise">
                 <h4 class="item-title">
-                    <a href="#">{{$kelas->class_shortname}}</a>
+                    <h5>{{$kelas->class_name}}</h5>
                   </h4>
                 <a href="/detailkelas/{{$kelas->id}}" class="btn btn-more"><i class="fa fa-plus"></i>Edit Class</a>
               </div>

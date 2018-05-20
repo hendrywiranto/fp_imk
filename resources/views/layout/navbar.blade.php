@@ -66,7 +66,7 @@
             <ul class="nav navbar-nav" id="main-menu">
             @if(session('user.role')=='siswa')
               <li class="icon-link">
-                <a href="/subkelas"><i class="fa fa-plus"></i>&ensp;Subscribe Class</a>
+                <a href="/subkelas"><i class="fa fa-plus"></i>&ensp;Enroll Class</a>
               </li>
             @else
               <li class="icon-link">

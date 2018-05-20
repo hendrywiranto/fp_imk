@@ -17,7 +17,9 @@
       <div class="showcase block block-border-bottom-grey">
         <div class="container">
           <h2 class="block-title">Subscribe to a Class</h2>
-          <div class="item-carousel" data-toggle="owlcarousel" data-owlcarousel-settings='{"items":4, "pagination":false, "navigation":true, "itemsScaleUp":true}'>
+<!--          <div class="item-carousel" data-toggle="owlcarousel" data-owlcarousel-settings='{"items":4, "pagination":false, "navigation":true, "itemsScaleUp":true}'>-->
+          
+          <div class="item-carousel">
             <!-- ADD CLASSES (Loop here)-->
             @if($kelas->isEmpty())
               <div>
@@ -25,7 +27,7 @@
               </div>
             @endif
             @foreach($kelas as $kelas)
-              <div class="item">
+              <div style="margin: 10px 0 10px 0" align="center" class="col-lg-3">
                 <a href="/subkelas/{{$kelas->id}}" class="overlay-wrapper">
                     <img src="{{$kelas->class_pic}}" class="img-responsive underlay">
                     <span class="overlay">

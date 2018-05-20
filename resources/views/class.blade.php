@@ -28,7 +28,7 @@
                 Prologue
               </h3>
             <img src="/img/misc/about-us.png" alt="About us" class="img-responsive img-thumbnail pull-right m-l m-b">
-            <p>{{$kelas->class_prologue}}</p>
+            <p style="text-align:justify">{{$kelas->class_prologue}}</p>
           </div>
           <div class="block-highlight block-pd-h block-pd-sm">
             <h3 class="block-title">
@@ -45,8 +45,8 @@
               <div class="col-md-4">
                 <div class="stat"> 
                   <small><strong>Course {{$pertemuan->urut}}</strong></small>
-                  <small>Materials : <a href="https://garuk.in/taj1">{{$kelas->class_name}} {{$pertemuan->urut}}</a></small>
-                  <small>Video : <a href="https://garuk.in/vidtaj1">Record {{$kelas->class_name}} {{$pertemuan->urut}}</a></small>
+                  <small>Materials : <a href="https://garuk.in/taj1">{{$kelas->class_shortname}} {{$pertemuan->urut}}</a></small>
+                  <small>Video : <a href="https://garuk.in/vidtaj1">Record {{$kelas->class_shortname}} {{$pertemuan->urut}}</a></small>
                 </div>
               </div>
             @endforeach
