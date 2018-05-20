@@ -16,7 +16,7 @@
   <div id="content">
     <div class="container" id="about">
       <div class="row">
-        <div class="col-md-9 col-md-push-3">
+        <div class="col-md-10 col-md-push-2">
           <div class="page-header">
             <h1>
                 {{$kelas->class_name}}
@@ -29,25 +29,27 @@
             </h3>
             <!-- IF EMPTY SHOW -->
             @foreach($kelas->pertemuan as $pertemuan)
-              <div class="block-highlight block-pd-h block-pd-sm col-md-4">
+              <div class="block-highlight block-pd-h block-pd-sm col-md-6">
               <div><b>Course {{$pertemuan->urut}}</b></div>
               <div>Date&nbsp;&nbsp;&nbsp;&nbsp;: {{$pertemuan->datetime}}</div>
               <div>State&nbsp;&nbsp;&nbsp;:<strong>
                 @if($pertemuan->batal==0) 
-                  Hadir
+                  Available
                 @else
-                  Batal
+                  Canceled
                 @endif
               </strong> </div>
               @if($pertemuan->keterangan!=NULL)
-                <div>Info: {{$pertemuan->keterangan}}</div>
+                  <div>Info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$pertemuan->keterangan}}</div>
+              @else
+                  <div>Info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: -</div>
               @endif
               @if($pertemuan->batal==0)
-                <a href="/batal/{{$pertemuan->id}}" type="button" class="btn btn-sm btn-primary">Batal</a>
+                <a href="/batal/{{$pertemuan->id}}" type="button" class="btn btn-sm btn-primary">Cancel</a>
               @else
-                <a href="/hadir/{{$pertemuan->id}}" type="button" class="btn btn-sm btn-primary">Hadir</a>
+                <a href="/hadir/{{$pertemuan->id}}" type="button" class="btn btn-sm btn-primary">Available</a>
               @endif
-              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#presence-{{$pertemuan->id}}">Tambah Informasi</button>
+              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#presence-{{$pertemuan->id}}">Add Information</button>
               <!-- Modal -->
               <div class="modal fade" id="presence-{{$pertemuan->id}}" role="dialog">
                 <div class="modal-dialog">
@@ -65,7 +67,7 @@
                         </div>
                       </div>
                       <div class="modal-footer">
-                        <input type="submit" name="save" value="Save"> 
+                        <input type="submit" class="btn btn-primary" name="save" value="Save"> 
                       </div>
                     </form>
                   </div>
@@ -95,7 +97,7 @@
           </div>
         </div>
         
-        <div class="col-md-3 col-md-pull-9 sidebar visible-md-block visible-lg-block">
+        <div class="col-md-2 col-md-pull-10 sidebar visible-md-block visible-lg-block">
           <ul class="nav nav-pills nav-stacked">
             <li class="active">
               <a href="#" class="first">

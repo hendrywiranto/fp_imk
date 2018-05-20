@@ -24,7 +24,7 @@
       </div>
       <div class="showcase block block-border-bottom-grey">
         <div class="container">
-          <h2 class="block-title">Subscribe to a Class</h2>
+          <h2 class="block-title">Enroll to a Class</h2>
 <!--          <div class="item-carousel" data-toggle="owlcarousel" data-owlcarousel-settings='{"items":4, "pagination":false, "navigation":true, "itemsScaleUp":true}'>-->
           
           <div class="item-carousel">

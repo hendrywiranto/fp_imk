@@ -1,18 +1,16 @@
     <div class="header-hidden collapse">
         <div class="header-hidden-inner container">
           <div class="row">
-            <div class="col-md-3">
-              <h3>
-              	Classes
-              </h3>
+              <h3>Classes</h3>
               <!--LOOP HERE-->
               @if(session('pert')!=NULL)
                 @foreach(session('pert') as $pert)
+              <div class="col-lg-3 col-md-4 col-sm-6">
                   <p>{{$pert->datetime}}@if($pert->batal==1) - Batal @endif</p>
                   <a href="/kelas/{{$pert->kelas->id}}">{{$pert->kelas->class_name}}</a><br><br>
+              </div>
                 @endforeach
               @endif
-            </div>
 {{--             <div class="col-md-3">
               <h3>
               	Tasks

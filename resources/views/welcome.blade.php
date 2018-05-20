@@ -72,7 +72,7 @@
 
           <!-- CLASS MANAGEMENT (Loop Here) -->
           @foreach($kelas as $kelas)
-            <div style="margin: 10px 0 10px 0" align="center" class="col-lg-3">
+            <div style="margin: 10px 0 10px 0" align="center" class="col-lg-3 col-md-4 col-sm-6">
               <a href="/detailkelas/{{$kelas->id}}" class="overlay-wrapper">
                   <img style="width:100%;" src="{{$kelas->class_pic}}" class="img-responsive underlay">
                   <span class="overlay">
