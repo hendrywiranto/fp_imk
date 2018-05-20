@@ -11,6 +11,8 @@ use App\Kelas;
 class HomeController extends Controller
 {
     public function notification(){
+        $user_details = User::where('email', session('user.email'))->get();
+        Session::put('user', $user_details[0]);
         $datenow = \Carbon\Carbon::now(7);
         $pert = array();
         foreach(session('user')->kelas as $kelas){
@@ -24,8 +26,6 @@ class HomeController extends Controller
         Session::put('pert', $pert);
     }
     public function index(){
-        $user_details = User::where('email', session('user.email'))->get();
-        Session::put('user', $user_details[0]);
         $this->notification();
         if(session('user.role')=='dosen'){
             $kelas = Kelas::all();
