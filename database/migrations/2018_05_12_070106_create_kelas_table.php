@@ -18,8 +18,9 @@ class CreateKelasTable extends Migration
             $table->string('class_name');
             $table->string('class_shortname');
             $table->string('class_lecturer');
+            $table->string('class_place');
             $table->string('class_pic')->default("/img/showcase/kelas.jpg");
-            $table->string('class_prologue');
+            $table->string('class_prologue', 700);
             $table->timestamps();
         });
     }

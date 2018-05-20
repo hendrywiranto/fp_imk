@@ -20,6 +20,7 @@ class CreatePertemuansTable extends Migration
             $table->integer('urut');
             $table->datetime('datetime');
             $table->tinyInteger('batal');
+            $table->string('keterangan',500)->nullable();
             $table->timestamps();
         });
     }

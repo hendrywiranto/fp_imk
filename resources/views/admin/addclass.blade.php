@@ -31,12 +31,16 @@
         <input type="text" name="lecturer" class="form-control" >
       </div>
       <div class="form-group">
+        <label for="exampleInputEmail1">Class Place</label>
+        <input type="text" name="place" class="form-control" >
+      </div>
+      <div class="form-group">
         <label for="exampleInputEmail1">Class Picture</label>
-        <input type="file" name="input_img" id="imageInput" class="form-control" accept="image/*">
+        <input type="file" name="input_img" id="imageInput" class="form-control-file" accept="image/*">
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Class Prologue</label>
-        <input type="text" name="prologue" class="form-control" >
+        <textarea name="prologue" cols="40" rows="5" class="form-control"></textarea>
       </div>
         <input type="submit" name="submit" class="btn btn-primary btn-block" value="Add Class">
     </form>

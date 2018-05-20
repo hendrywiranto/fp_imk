@@ -25,8 +25,11 @@ Route::group(['middleware' => ['session']], function () {
 	});
 
 	Route::group(['middleware' => ['dosen']], function () {
-		Route::get('/detailkelas/{id}', 'AdminController@detailKelas');
+		Route::get('/detailkelas/{id}', 'AdminController@detailKelas')->name('admin.detail');
 		Route::get('/addkelas', 'AdminController@showAddKelas');
 		Route::post('/addkelas', 'AdminController@addKelas');
+		Route::get('/batal/{id}', 'AdminController@batalPertemuan');
+		Route::get('/hadir/{id}', 'AdminController@hadirPertemuan');
+		Route::get('/info/{id}', 'AdminController@infoPertemuan');
 	});
 });

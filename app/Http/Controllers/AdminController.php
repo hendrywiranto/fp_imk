@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kelas;
+use App\Pertemuan;
 
 class AdminController extends Controller
 {
@@ -21,6 +22,7 @@ class AdminController extends Controller
         $kelas->class_name = $request->input('name');
         $kelas->class_shortname = $request->input('shortname');
         $kelas->class_lecturer = $request->input('lecturer');
+        $kelas->class_place = $request->input('place');
         $kelas->class_prologue = $request->input('prologue');
         if ($request->file('input_img')){
             $img = time() . "." . $request->file('input_img')->getClientOriginalExtension();
@@ -30,5 +32,26 @@ class AdminController extends Controller
         }
         $kelas->save();
         return redirect()->route('home');
+	}
+
+	public function batalPertemuan($id){
+		$pertemuan = Pertemuan::find($id);
+		$pertemuan->batal=1;
+		$pertemuan->save();
+		return redirect()->route('admin.detail', ['id' => $pertemuan->kelas_id]);
+	}
+
+	public function hadirPertemuan($id){
+		$pertemuan = Pertemuan::find($id);
+		$pertemuan->batal=0;
+		$pertemuan->save();
+		return redirect()->route('admin.detail', ['id' => $pertemuan->kelas_id]);
+	}
+
+	public function infoPertemuan(Request $request, $id){
+		$pertemuan = Pertemuan::find($id);
+		$pertemuan->keterangan=$request->input('info');
+		$pertemuan->save();
+		return redirect()->route('admin.detail', ['id' => $pertemuan->kelas_id]);
 	}
 }
