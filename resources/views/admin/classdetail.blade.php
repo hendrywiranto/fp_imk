@@ -85,12 +85,31 @@
             @foreach($kelas->pertemuan as $pertemuan)
               <div class="col-lg-4">
                 <div class="stat"> 
-                  <small><strong>Course {{$pertemuan->urut}}</strong></small>
-                  <div class="row" style="padding:1px">
-                  <small>Materials : <a class="btn btn-sm btn-primary" href="[MATERIAL LINK]">View</a> <a class="btn btn-sm btn-primary" href="[REUPLOAD LINK]">Reupload</a> </small>
-                  </div><div class="row" style="padding:1px">
-                  <small>Video &emsp;&nbsp;&nbsp;: <a class="btn btn-sm btn-primary" href="[MATERIAL VIDEO LINK]">View</a> <a class="btn btn-sm btn-primary" href="[REUPLOAD LINK]">Reupload</a></small>
-                </div></div>
+                    <small><strong>Course {{$pertemuan->urut}}</strong></small>
+                    <div class="row" style="padding:1px">
+                    <small>Materials :</small>
+                    @foreach($pertemuan->materi as $materi)
+                      <small><a href="{{$materi->path}}">{{$materi->name}}</a></small>
+                    @endforeach
+                    </div>
+                    <div class="row" style="padding:1px">
+{{--                     <small>Video &emsp;&nbsp;&nbsp;: <a class="btn btn-sm btn-primary" href="[MATERIAL VIDEO LINK]">View</a> <a class="btn btn-sm btn-primary" href="[REUPLOAD LINK]">Reupload</a></small> --}}
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        {!! csrf_field() !!}
+                        <input type="hidden" name="class_id" class="form-control" value="{{$kelas->id}}">
+                        <input type="hidden" name="pertemuan_id" class="form-control" value="{{$pertemuan->id}}">
+                        <div class="form-group col-md-12">
+                          <input type="text" name="name" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <input type="file" name="fileToUpload" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <input type="submit" value="Upload File" name="submit" class="btn btn-primary btn-block">
+                        </div>
+                    </form>
+                  </div>
+                </div>
               </div>
               @endforeach
             </div>

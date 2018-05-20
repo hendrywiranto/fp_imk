@@ -22,27 +22,27 @@
     <form action="/addkelas" method="POST" enctype="multipart/form-data">
       {!! csrf_field() !!}
       <div class="form-group col-md-9">
-        <label for="exampleInputEmail1">Class Name</label>
+        <label>Class Name</label>
         <input type="text" name="name" class="form-control" >
       </div>
       <div class="form-group col-md-3">
-        <label for="exampleInputEmail1">Class Short Name</label>
+        <label>Class Short Name</label>
         <input type="text" name="shortname" class="form-control" >
       </div>
       <div class="form-group col-md-9">
-        <label for="exampleInputEmail1">Class Lecturer</label>
+        <label>Class Lecturer</label>
         <input type="text" name="lecturer" class="form-control" >
       </div>
       <div class="form-group col-md-3">
-        <label for="exampleInputEmail1">Class Place</label>
+        <label>Class Place</label>
         <input type="text" name="place" class="form-control" >
       </div>
       <div class="form-group col-md-9">
-        <label for="exampleInputEmail1">Class Prologue</label>
+        <label>Class Prologue</label>
         <textarea name="prologue" cols="40" rows="5" class="form-control"></textarea>
       </div>
       <div class="form-group col-md-3">
-        <label for="exampleInputEmail1">Class Picture</label>
+        <label>Class Picture</label>
         <input type="file" name="input_img" id="imageInput" class="form-control-file" accept="image/*">
       </div>
         <input type="submit" name="submit" class="btn btn-primary btn-block" value="Add Class">

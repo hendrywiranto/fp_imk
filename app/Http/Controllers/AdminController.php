@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kelas;
 use App\Pertemuan;
+use App\Materi;
 
 class AdminController extends Controller
 {
@@ -54,4 +55,21 @@ class AdminController extends Controller
 		$pertemuan->save();
 		return redirect()->route('admin.detail', ['id' => $pertemuan->kelas_id]);
 	}
+
+	public function showUploadFile(Request $request){
+      $file = $request->file('fileToUpload');
+      //Move Uploaded File
+      $destinationPath = '/public/uploads/';
+      $name = time() . "." . $request->file('fileToUpload')->getClientOriginalExtension();
+      $file->move(base_path() . $destinationPath, $name);
+
+      $destinationPath = '/uploads/';
+      $materi = new Materi;
+      $materi->name = $request->input('name');
+      $materi->path = $destinationPath . $name;
+      $materi->type = '1';
+      $pertemuan = Pertemuan::find($request->input('pertemuan_id'));
+      $pertemuan->materi()->save($materi);
+      return redirect()->route('admin.detail', ['id'=>$request->input('class_id')]);
+   }
 }

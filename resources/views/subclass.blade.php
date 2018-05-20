@@ -41,10 +41,10 @@
                     <span class="overlay">
                         <span class="overlay-content"> <span class="h4">{{$kelas->class_shortname}}</span> </span>
                     </span>
-                  </a>
+                </a>
                 <div class="item-details bg-noise">
                   <h4 class="item-title">
-                      <a href="#">{{$kelas->class_name}}</a>
+                      <span>{{$kelas->class_name}}</span>
                     </h4>
                   <a href="/subkelas/{{$kelas->id}}" class="btn btn-more"><i class="fa fa-plus"></i>Add Class</a>
                 </div>

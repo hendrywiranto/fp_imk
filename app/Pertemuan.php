@@ -13,4 +13,8 @@ class Pertemuan extends Model
     {
         return $this->belongsTo('App\Kelas');
     }
+    public function materi()
+    {
+        return $this->hasMany('App\Materi');
+    }
 }
