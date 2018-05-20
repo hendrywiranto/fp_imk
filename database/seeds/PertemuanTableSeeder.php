@@ -94,5 +94,42 @@ class PertemuanTableSeeder extends Seeder
             $pertemuan->batal = 0;
             $kelas->pertemuan()->save($pertemuan);
         }
+
+        $kelas = new Kelas;
+        $kelas->class_name = 'Sistem Enterprise';
+        $kelas->class_shortname = 'SE';
+        $kelas->class_lecturer = 'Riyananto Sarno';
+        $kelas->class_place = 'IF-106';
+        $kelas->class_pic = '/img/showcase/Wireless.jpg';
+        $kelas->class_prologue = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis nibh eget nisl dignissim, eget aliquet metus sodales. Aliquam cursus ante vitae risus mollis bibendum. Praesent nec cursus ante. Nam vestibulum lacus mi, a commodo velit egestas eget. Etiam id est non est pharetra dictum eget id urna. Ut eu ornare ex. Aenean in iaculis quam. Aenean facilisis efficitur turpis, pulvinar luctus diam facilisis condimentum. Nullam feugiat ultricies maximus. Cras erat magna, finibus et nunc et, lobortis egestas ante. Duis quis vulputate turpis.';
+        $kelas->save();
+
+        $time1 = Carbon\Carbon::create(2018, 3, 4, 13);
+        for($i=1;$i<17;$i++){
+            $pertemuan = new Pertemuan;
+            $pertemuan->urut = $i;
+            $pertemuan->datetime = $time1->addWeeks(1);
+            $pertemuan->batal = 0;
+            $kelas->pertemuan()->save($pertemuan);
+        }
+
+
+        $kelas = new Kelas;
+        $kelas->class_name = 'Cloud Computing';
+        $kelas->class_shortname = 'CC';
+        $kelas->class_lecturer = 'Royanna M.';
+        $kelas->class_place = 'IF-105B';
+        $kelas->class_pic = '/img/showcase/RK.jpg';
+        $kelas->class_prologue = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis nibh eget nisl dignissim, eget aliquet metus sodales. Aliquam cursus ante vitae risus mollis bibendum. Praesent nec cursus ante. Nam vestibulum lacus mi, a commodo velit egestas eget. Etiam id est non est pharetra dictum eget id urna. Ut eu ornare ex. Aenean in iaculis quam. Aenean facilisis efficitur turpis, pulvinar luctus diam facilisis condimentum. Nullam feugiat ultricies maximus. Cras erat magna, finibus et nunc et, lobortis egestas ante. Duis quis vulputate turpis.';
+        $kelas->save();
+
+        $time1 = Carbon\Carbon::create(2018, 3, 5, 9);
+        for($i=1;$i<17;$i++){
+            $pertemuan = new Pertemuan;
+            $pertemuan->urut = $i;
+            $pertemuan->datetime = $time1->addWeeks(1);
+            $pertemuan->batal = 0;
+            $kelas->pertemuan()->save($pertemuan);
+        }
     }
 }
