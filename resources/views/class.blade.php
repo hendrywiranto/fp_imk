@@ -34,7 +34,13 @@
             <h3 class="block-title">
                 Lecturer Info
               </h3>
-            <p class="text-fancy">Mon, April 9th 2018:&emsp;Lecturer will attend the class on time.</p>
+            {{-- <p class="text-fancy">Mon, April 9th 2018:&emsp;Lecturer will attend the class on time.</p> --}}
+            <p class="text-fancy">{{$pert->datetime}}&emsp;
+              @if($pert->batal==1) Batal
+                @if($pert->keterangan!=NULL) - {{$pert->keterangan}}
+                @endif
+            @else Lecturer will attend the class on time.
+          @endif</p>
           </div>
           <div class="block">
             <h3 class="block-title">

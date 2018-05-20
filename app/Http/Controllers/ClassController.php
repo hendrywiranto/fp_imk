@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Kelas;
 use App\User;
 
@@ -10,7 +11,16 @@ class ClassController extends Controller
 {
     public function detail($id){
     	$kelas = Kelas::where('id', $id)->get();
-    	return view('class', ['kelas'=>$kelas[0]]);
+        app('App\Http\Controllers\HomeController')->notification();
+        $datenow = \Carbon\Carbon::now(7);
+        foreach($kelas[0]->pertemuan as $pertemuan){
+            $diff = $datenow->diffInDays($pertemuan->datetime);  
+            if($diff<7 && !$datenow->gt($pertemuan->datetime)){
+                $pert = $pertemuan;
+                break;
+            }
+        }
+    	return view('class', ['kelas'=>$kelas[0], 'pert'=>$pert]);
     }
 
     public function showSubClass(){
@@ -24,7 +34,6 @@ class ClassController extends Controller
 
     public function subClass($id){
     	$kelas = Kelas::where('id', $id)->get();
-    	//dd($kelas);
     	session('user')->kelas()->save($kelas[0]);
     	return redirect()->route('home');
     }
