@@ -12,7 +12,6 @@
 
   <!-- INCLUDE NAVBAR -->
   @include('layout.navbar')
-
   <div id="content">
     <div class="container" id="about">
       <div class="row">
@@ -24,6 +23,12 @@
           <small>{{$kelas->class_lecturer}}</small>
           </div>
           <div class="block">
+            @if(session('message.1'))
+            <div class="alert alert-success alert-dismissible"">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>{{session('message.1')}}</strong> {{session('message.2')}}
+            </div>
+            @endif
             <h3 class="block-title">
                 Lecturer Info
             </h3>
@@ -45,11 +50,12 @@
                   <div>Info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: -</div>
               @endif
               @if($pertemuan->batal==0)
-                <a href="/batal/{{$pertemuan->id}}" type="button" class="btn btn-sm btn-primary">Cancel</a>
+                <a href="/batal/{{$pertemuan->id}}" type="button" class="btn btn-sm btn-danger">Cancel</a>
               @else
-                <a href="/hadir/{{$pertemuan->id}}" type="button" class="btn btn-sm btn-primary">Available</a>
+                <a href="/hadir/{{$pertemuan->id}}" type="button" class="btn btn-sm btn-success">Available</a>
               @endif
               <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#presence-{{$pertemuan->id}}">Add Information</button>
+              <a href="/deleteinfo/{{$pertemuan->id}}" class="btn btn-primary btn-sm">Delete Information</a>
               <!-- Modal -->
               <div class="modal fade" id="presence-{{$pertemuan->id}}" role="dialog">
                 <div class="modal-dialog">
@@ -85,29 +91,30 @@
             @foreach($kelas->pertemuan as $pertemuan)
               <div class="col-lg-4">
                 <div style="height:320px" class="stat"> 
-                    <small><strong>Course {{$pertemuan->urut}}</strong></small>
-                    <div class="row" style="padding:1px">
-                    <small>Materials :</small>
-                    @foreach($pertemuan->materi as $materi)
-                      <small><a href="{{$materi->path}}">{{$materi->name}}</a></small>
-                    @endforeach   
-                    </div>
-                    <div class="row" style="padding:1px">
+                  <small style="margin-bottom: 10px;" class="text-left" ><strong>Course {{$pertemuan->urut}}</strong></small>
+                  <div class="row" style="padding:1px">
 {{--                     <small>Video &emsp;&nbsp;&nbsp;: <a class="btn btn-sm btn-primary" href="[MATERIAL VIDEO LINK]">View</a> <a class="btn btn-sm btn-primary" href="[REUPLOAD LINK]">Reupload</a></small> --}}
                     <form action="/upload" method="post" enctype="multipart/form-data">
                         {!! csrf_field() !!}
                         <input type="hidden" name="class_id" class="form-control" value="{{$kelas->id}}">
                         <input type="hidden" name="pertemuan_id" class="form-control" value="{{$pertemuan->id}}">
                         <div class="form-group col-md-12">
-                          <input type="text" name="name" class="form-control">
+                          <div class=""><small>Material Name</small></div>
+                          <input type="text" name="name" class="form-control" required>
                         </div>
                         <div class="form-group col-md-12">
-                          <input type="file" name="fileToUpload" class="btn form-control">
+                          <input type="file" name="fileToUpload" class="btn form-control" required>
                         </div>
                         <div class="form-group col-md-12">
                           <input type="submit" value="Upload File" name="submit" class="btn btn-primary btn-block">
                         </div>
                     </form>
+                  </div>
+                  <div class="row" style="padding:1px">
+                  <small>Materials :</small>
+                  @foreach($pertemuan->materi as $materi)
+                    <small><a href="{{$materi->path}}">{{$materi->name}}</a></small>
+                  @endforeach   
                   </div>
                 </div>
               </div>

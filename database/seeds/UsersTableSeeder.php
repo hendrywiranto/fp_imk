@@ -15,28 +15,28 @@ class UsersTableSeeder extends Seeder
             'name' => 'Hendry Wiranto',
             'nrp' => '0511540000102',
             'email' => 'hendrywiranto24@gmail.com',
-            'password' => md5('stangstung'),
+            'password' => md5('siswa'),
             'role' => 'siswa',
         ]);
         DB::table('users')->insert([
             'name' => 'Josh',
             'nrp' => '0511540000172',
             'email' => 'josh@gmail.com',
-            'password' => md5('stangstung'),
+            'password' => md5('siswa'),
             'role' => 'siswa',
         ]);
         DB::table('users')->insert([
             'name' => 'Reinhart',
             'nrp' => '0511540000132',
             'email' => 'reinhart@gmail.com',
-            'password' => md5('stangstung'),
+            'password' => md5('siswa'),
             'role' => 'siswa',
         ]);
         DB::table('users')->insert([
             'name' => 'Chasni',
             'nrp' => '0511540000175',
             'email' => 'chasni@gmail.com',
-            'password' => md5('stangstung'),
+            'password' => md5('siswa'),
             'role' => 'siswa',
         ]);
         DB::table('users')->insert([

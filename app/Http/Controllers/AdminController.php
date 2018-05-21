@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Kelas;
 use App\Pertemuan;
 use App\Materi;
@@ -39,13 +40,17 @@ class AdminController extends Controller
 		$pertemuan = Pertemuan::find($id);
 		$pertemuan->batal=1;
 		$pertemuan->save();
+		Session::flash('message.1', 'Success!'); 
+		Session::flash('message.2', 'Class changed to canceled'); 
 		return redirect()->route('admin.detail', ['id' => $pertemuan->kelas_id]);
 	}
 
 	public function hadirPertemuan($id){
 		$pertemuan = Pertemuan::find($id);
 		$pertemuan->batal=0;
-		$pertemuan->save();
+		$pertemuan->save(); 
+		Session::flash('message.1', 'Success!'); 
+		Session::flash('message.2', 'Class changed to avaliable'); 
 		return redirect()->route('admin.detail', ['id' => $pertemuan->kelas_id]);
 	}
 
@@ -53,23 +58,36 @@ class AdminController extends Controller
 		$pertemuan = Pertemuan::find($id);
 		$pertemuan->keterangan=$request->input('info');
 		$pertemuan->save();
+		Session::flash('message.1', 'Success!'); 
+		Session::flash('message.2', 'Add information success'); 
+		return redirect()->route('admin.detail', ['id' => $pertemuan->kelas_id]);
+	}
+
+	public function deleteInfoPertemuan(Request $request, $id){
+		$pertemuan = Pertemuan::find($id);
+		$pertemuan->keterangan=NULL;
+		$pertemuan->save();
+		Session::flash('message.1', 'Success!'); 
+		Session::flash('message.2', 'Delete information success'); 
 		return redirect()->route('admin.detail', ['id' => $pertemuan->kelas_id]);
 	}
 
 	public function showUploadFile(Request $request){
-      $file = $request->file('fileToUpload');
-      //Move Uploaded File
-      $destinationPath = '/public/uploads/';
-      $name = time() . "." . $request->file('fileToUpload')->getClientOriginalExtension();
-      $file->move(base_path() . $destinationPath, $name);
+	    $file = $request->file('fileToUpload');
+	    //Move Uploaded File
+	    $destinationPath = '/public/uploads/';
+	    $name = time() . "." . $request->file('fileToUpload')->getClientOriginalExtension();
+	    $file->move(base_path() . $destinationPath, $name);
 
-      $destinationPath = '/uploads/';
-      $materi = new Materi;
-      $materi->name = $request->input('name');
-      $materi->path = $destinationPath . $name;
-      $materi->type = '1';
-      $pertemuan = Pertemuan::find($request->input('pertemuan_id'));
-      $pertemuan->materi()->save($materi);
-      return redirect()->route('admin.detail', ['id'=>$request->input('class_id')]);
+	    $destinationPath = '/uploads/';
+	    $materi = new Materi;
+	    $materi->name = $request->input('name');
+	    $materi->path = $destinationPath . $name;
+	    $materi->type = '1';
+	    $pertemuan = Pertemuan::find($request->input('pertemuan_id'));
+	    $pertemuan->materi()->save($materi);
+		Session::flash('message.1', 'Success!'); 
+		Session::flash('message.2', 'Add material success'); 
+      	return redirect()->route('admin.detail', ['id'=>$request->input('class_id')]);
    }
 }

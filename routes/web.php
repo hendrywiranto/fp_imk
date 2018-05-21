@@ -31,6 +31,7 @@ Route::group(['middleware' => ['session']], function () {
 		Route::get('/batal/{id}', 'AdminController@batalPertemuan');
 		Route::get('/hadir/{id}', 'AdminController@hadirPertemuan');
 		Route::get('/info/{id}', 'AdminController@infoPertemuan');
+		Route::get('/deleteinfo/{id}', 'AdminController@deleteInfoPertemuan');
 		Route::post('/upload', 'AdminController@showUploadFile');
 	});
 });
