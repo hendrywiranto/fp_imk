@@ -14,12 +14,11 @@ class MateriTableSeeder extends Seeder
     public function run()
     {
         $materi = new Materi;
-        $materi->name = 'Excel';
-        $materi->path = '/uploads/1526841825.xlsx';
+        $materi->name = 'Usability';
+        $materi->path = '/uploads/1526843435.pdf';
         $materi->type = '1';
         
         $pertemuan = Pertemuan::find(1);
         $pertemuan->materi()->save($materi);
-
     }
 }

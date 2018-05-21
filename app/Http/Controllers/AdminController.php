@@ -33,6 +33,20 @@ class AdminController extends Controller
 	    	$kelas->class_pic = $photopath;
         }
         $kelas->save();
+
+        $date = explode('-',$request->input('date'));
+        $time = explode(':',$request->input('time'));
+        $time1 = \Carbon\Carbon::create($date[0], $date[1], $date[2], $time[0], $time[1], 0);
+        $time1 = $time1->subWeek();
+        for($i=1;$i<17;$i++){
+            $pertemuan = new Pertemuan;
+            $pertemuan->urut = $i;
+            $pertemuan->datetime = $time1->addWeeks(1);
+            $pertemuan->batal = 0;
+            $kelas->pertemuan()->save($pertemuan);
+        }
+		Session::flash('message.1', 'Success!'); 
+		Session::flash('message.2', 'Add material success'); 
         return redirect()->route('home');
 	}
 

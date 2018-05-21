@@ -29,7 +29,8 @@ class PertemuanTableSeeder extends Seeder
         $user[1]->kelas()->save($kelas);
         $user[3]->kelas()->save($kelas);
 
-        $time1 = Carbon\Carbon::create(2018, 2, 31, 10);
+        $time1 = Carbon\Carbon::create(2018, 2, 28, 10);
+        $time1->subWeek();
         for($i=1;$i<17;$i++){
             $pertemuan = new Pertemuan;
             $pertemuan->urut = $i;
@@ -51,6 +52,7 @@ class PertemuanTableSeeder extends Seeder
         $user[0]->kelas()->save($kelas);
 
         $time1 = Carbon\Carbon::create(2018, 3, 1, 13);
+        $time1->subWeek();
         for($i=1;$i<17;$i++){
             $pertemuan = new Pertemuan;
             $pertemuan->urut = $i;
@@ -69,6 +71,7 @@ class PertemuanTableSeeder extends Seeder
         $kelas->save();
 
         $time1 = Carbon\Carbon::create(2018, 3, 2, 7);
+        $time1->subWeek();
         for($i=1;$i<17;$i++){
             $pertemuan = new Pertemuan;
             $pertemuan->urut = $i;
@@ -87,6 +90,7 @@ class PertemuanTableSeeder extends Seeder
         $kelas->save();
 
         $time1 = Carbon\Carbon::create(2018, 3, 3, 15);
+        $time1->subWeek();
         for($i=1;$i<17;$i++){
             $pertemuan = new Pertemuan;
             $pertemuan->urut = $i;
@@ -105,6 +109,7 @@ class PertemuanTableSeeder extends Seeder
         $kelas->save();
 
         $time1 = Carbon\Carbon::create(2018, 3, 4, 13);
+        $time1->subWeek();
         for($i=1;$i<17;$i++){
             $pertemuan = new Pertemuan;
             $pertemuan->urut = $i;
@@ -124,6 +129,7 @@ class PertemuanTableSeeder extends Seeder
         $kelas->save();
 
         $time1 = Carbon\Carbon::create(2018, 3, 5, 9);
+        $time1->subWeek();
         for($i=1;$i<17;$i++){
             $pertemuan = new Pertemuan;
             $pertemuan->urut = $i;

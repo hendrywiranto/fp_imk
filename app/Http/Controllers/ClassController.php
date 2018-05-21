@@ -35,6 +35,8 @@ class ClassController extends Controller
     public function subClass($id){
     	$kelas = Kelas::where('id', $id)->get();
     	session('user')->kelas()->save($kelas[0]);
+        Session::flash('message.1', 'Success!'); 
+        Session::flash('message.2', 'Enroll class success'); 
     	return redirect()->route('home');
     }
 }

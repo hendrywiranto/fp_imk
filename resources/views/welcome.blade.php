@@ -27,6 +27,12 @@
       <div class="showcase block block-border-bottom-grey">
         <div class="container">
           <h2 class="block-title">Enrolled Classes</h2>
+            @if(session('message.1'))
+            <div class="alert alert-success alert-dismissible"">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>{{session('message.1')}}</strong> {{session('message.2')}}
+            </div>
+            @endif
 <!--          <div class="item-carousel" data-toggle="owlcarousel" data-owlcarousel-settings='{"items":4, "pagination":false, "navigation":true, "itemsScaleUp":true}'>-->
           
           <div class="item-carousel">
@@ -67,6 +73,12 @@
     <div class="showcase block block-border-bottom-grey">
       <div class="container">
         <h2 class="block-title">Manage Classes</h2>
+            @if(session('message.1'))
+            <div class="alert alert-success alert-dismissible"">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>{{session('message.1')}}</strong> {{session('message.2')}}
+            </div>
+            @endif
 <!--        <div class="item-carousel" data-toggle="owlcarousel" data-owlcarousel-settings='{"items":4, "pagination":false, "navigation":true, "itemsScaleUp":true}'>-->
         <div class="item-carousel">
 

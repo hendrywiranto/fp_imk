@@ -42,7 +42,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Anny Y',
             'nrp' => '5115',
-            'email' => 'annyyuliarti@gmail.com',
+            'email' => 'annyyuniarti@gmail.com',
             'password' => md5('dosen'),
             'role' => 'dosen',
         ]);

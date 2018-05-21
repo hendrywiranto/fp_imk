@@ -34,53 +34,59 @@
             </h3>
             <!-- IF EMPTY SHOW -->
             @foreach($kelas->pertemuan as $pertemuan)
-              <div class="block-highlight block-pd-h block-pd-sm col-md-6">
-              <div><b>Course {{$pertemuan->urut}}</b></div>
-              <div>Date&nbsp;&nbsp;&nbsp;&nbsp;: {{$pertemuan->datetime}}</div>
-              <div>State&nbsp;&nbsp;&nbsp;:<strong>
-                @if($pertemuan->batal==0) 
-                  Available
-                @else
-                  Canceled
-                @endif
-              </strong> </div>
-              @if($pertemuan->keterangan!=NULL)
-                  <div>Info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$pertemuan->keterangan}}</div>
-              @else
-                  <div>Info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: -</div>
-              @endif
-              @if($pertemuan->batal==0)
-                <a href="/batal/{{$pertemuan->id}}" type="button" class="btn btn-sm btn-danger">Cancel</a>
-              @else
-                <a href="/hadir/{{$pertemuan->id}}" type="button" class="btn btn-sm btn-success">Available</a>
-              @endif
-              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#presence-{{$pertemuan->id}}">Add Information</button>
-              <a href="/deleteinfo/{{$pertemuan->id}}" class="btn btn-primary btn-sm">Delete Information</a>
-              <!-- Modal -->
-              <div class="modal fade" id="presence-{{$pertemuan->id}}" role="dialog">
-                <div class="modal-dialog">
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <form action="/info/{{$pertemuan->id}}" method="GET">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Add Presence Information</h4>
+              <?php 
+                $datenow = \Carbon\Carbon::now(7);
+                $flag = !$datenow->gt($pertemuan->datetime);
+              ?>
+              @if($flag)
+                <div class="block-highlight block-pd-h block-pd-sm col-md-6">
+                  <div><b>Course {{$pertemuan->urut}}</b></div>
+                  <div>Date&nbsp;&nbsp;&nbsp;&nbsp;: {{$pertemuan->datetime}}</div>
+                  <div>State&nbsp;&nbsp;&nbsp;:<strong>
+                    @if($pertemuan->batal==0) 
+                      Available
+                    @else
+                      Canceled
+                    @endif
+                  </strong> </div>
+                  @if($pertemuan->keterangan!=NULL)
+                      <div>Info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$pertemuan->keterangan}}</div>
+                  @else
+                      <div>Info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: -</div>
+                  @endif
+                  @if($pertemuan->batal==0)
+                    <a href="/batal/{{$pertemuan->id}}" type="button" class="btn btn-sm btn-danger">Cancel</a>
+                  @else
+                    <a href="/hadir/{{$pertemuan->id}}" type="button" class="btn btn-sm btn-success">Available</a>
+                  @endif
+                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#presence-{{$pertemuan->id}}">Add Information</button>
+                  <a href="/deleteinfo/{{$pertemuan->id}}" class="btn btn-primary btn-sm">Delete Information</a>
+                  <!-- Modal -->
+                  <div class="modal fade" id="presence-{{$pertemuan->id}}" role="dialog">
+                    <div class="modal-dialog">
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <form action="/info/{{$pertemuan->id}}" method="GET">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Add Presence Information</h4>
+                          </div>
+                          <div class="modal-body">
+                            <div class="input-group input-group-lg">
+                              <span class="input-group-addon"><i class="fa fa-fw fa-arrow-right"></i></span>
+                              <input type="text" class="form-control" placeholder="Write here" name="info">
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <input type="submit" class="btn btn-primary" name="save" value="Save"> 
+                          </div>
+                        </form>
                       </div>
-                      <div class="modal-body">
-                        <div class="input-group input-group-lg">
-                          <span class="input-group-addon"><i class="fa fa-fw fa-arrow-right"></i></span>
-                          <input type="text" class="form-control" placeholder="Write here" name="info">
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <input type="submit" class="btn btn-primary" name="save" value="Save"> 
-                      </div>
-                    </form>
+                      
+                    </div>
                   </div>
-                  
                 </div>
-              </div>
-                  </div>
+              @endif
             @endforeach
           </div>
           <div class="block">

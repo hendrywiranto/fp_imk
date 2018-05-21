@@ -6,7 +6,7 @@
               @if(session('pert')!=NULL)
                 @foreach(session('pert') as $pert)
               <div class="col-lg-3 col-md-4 col-sm-6">
-                  <p>{{$pert->datetime}}@if($pert->batal==1) - Batal @endif</p>
+                  <p>{{$pert->datetime}}@if($pert->batal==1) - Canceled @endif</p>
                   <a href="/kelas/{{$pert->kelas->id}}">{{$pert->kelas->class_name}}</a><br><br>
               </div>
                 @endforeach
