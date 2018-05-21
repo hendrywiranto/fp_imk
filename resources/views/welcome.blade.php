@@ -39,7 +39,7 @@
             @foreach(session('user.kelas') as $kelas)
                <div style="margin: 10px 0 10px 0" align="center" class="col-lg-3">
                 <a href="/kelas/{{$kelas->id}}" class="overlay-wrapper">
-                    <img style="width:100%;" src="{{$kelas->class_pic}}" class="img-responsive underlay">
+                    <img style="width:320px; height:160px" src="{{$kelas->class_pic}}" class="img-responsive underlay">
                     <span class="overlay">
                       <span class="overlay-content"> <span class="h4">{{$kelas->class_shortname}}</span> </span>
                     </span>
@@ -74,7 +74,7 @@
           @foreach($kelas as $kelas)
             <div style="margin: 10px 0 10px 0" align="center" class="col-lg-3 col-md-4 col-sm-6">
               <a href="/detailkelas/{{$kelas->id}}" class="overlay-wrapper">
-                  <img style="width:100%;" src="{{$kelas->class_pic}}" class="img-responsive underlay">
+                  <img style="width:320px; height:160px" src="{{$kelas->class_pic}}" class="img-responsive underlay">
                   <span class="overlay">
                     <span class="overlay-content"> <span class="h4">{{$kelas->class_shortname}}</span> </span>
                   </span>

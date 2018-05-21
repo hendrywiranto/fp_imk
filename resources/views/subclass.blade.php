@@ -37,7 +37,7 @@
             @foreach($kelas as $kelas)
               <div style="margin: 10px 0 10px 0" align="center" class="col-lg-3">
                 <a href="/subkelas/{{$kelas->id}}" class="overlay-wrapper">
-                    <img src="{{$kelas->class_pic}}" class="img-responsive underlay">
+                    <img style="width:320px; height:160px" src="{{$kelas->class_pic}}" class="img-responsive underlay">
                     <span class="overlay">
                         <span class="overlay-content"> <span class="h4">{{$kelas->class_shortname}}</span> </span>
                     </span>
