@@ -42,12 +42,19 @@ class HomeController extends Controller
 
     public function login(Request $request){
 		$user_details = User::where('email', $request->input('email'))->get();
-        if ($user_details[0]->password==md5($request->input('password'))) {
+        if ($user_details->isEmpty()){
+            Session::flash('message.1', 'Failed!'); 
+            Session::flash('message.2', 'Wrong email'); 
+            return redirect()->route('login');
+        }
+        else if ($user_details[0]->password==md5($request->input('password'))) {
             Session::put('user', $user_details[0]);
             return redirect()->route('home');
         }
 		else{
-			return 'not entered ';
+            Session::flash('message.1', 'Failed!'); 
+            Session::flash('message.2', 'Wrong password'); 
+            return redirect()->route('login');
 		}
     }
 
